@@ -107,7 +107,7 @@ public struct OMCDAttributeSet {
 class OMCDParser: NSObject {
     /// 解析DSL
     /// - parameters: canvas DSL描述语句
-    public class func parsing(canvas: [String: Any]) -> OMCDAttributeSet?  {
+    public class func parsing(canvas: [String: Any]) -> OMCDAttributeSet  {
         let attributeSet = OMCDAttributeSet(flexStyle: recognize(flexStyle: [:]),
                                             viewStyle: recognize(viewStyle: [:]),
                                             data: recognize(data: [:]),
