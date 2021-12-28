@@ -11,9 +11,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+//        OMCDParser.parsing(canvas: <#T##[String : Any]#>)
     }
-
-
 }
 
