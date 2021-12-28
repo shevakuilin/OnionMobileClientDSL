@@ -10,7 +10,6 @@
 import Foundation
 import UIKit
 import yoga
-//import YGFloatOptional
 
 /// 布局信息解析
 ///
@@ -19,26 +18,6 @@ import yoga
 /// 响应事件解析
 ///
 /// 负责DSL的识别、解释和执行
-
-//struct CMCDLayoutParser {
-//    var top: Float
-//    var bottom: Float
-//    var left: Float
-//    var right: Float
-//    var width: Float
-//    var height: Float
-//}
-//
-//struct CMCDViewParser {
-//    var backgroundColor : UIColor
-//    var textColor: UIColor
-//    var textAlignment: NSTextAlignment
-//    var layer: CALayer
-//}
-//
-//struct CMCDActionParser {
-//    var clickAction: Selector
-//}
 
 
 /// DSL属性集
