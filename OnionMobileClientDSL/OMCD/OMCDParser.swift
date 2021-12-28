@@ -171,28 +171,38 @@ private extension OMCDParser {
     /// 识别data
     /// - parameters: data原始DSL描述语句
     private class func recognize(data: [String : Any]) -> OMCDData {
-        let data = OMCDData(data: [:], bindTarget: "")
+        let data = OMCDData(data: [:],
+                            bindTarget: "")
         return data
     }
     
     /// 识别viewAction
     /// - parameters: viewAction原始DSL描述语句
     private class func recognize(viewAction: [String : Any]) -> OMCDViewAction {
-        let viewAction = OMCDViewAction(action: "", extra: [:])
+        let viewAction = OMCDViewAction(action: "",
+                                        extra: [:])
         return viewAction
     }
     
     /// 识别condition
     /// - parameters: condition原始DSL描述语句
     private class func recognize(condition: [String : Any]) -> OMCDCondition {
-        let condition = OMCDCondition(operation: "", left: 0, right: 0, value: "", subCondition: 0)
+        let condition = OMCDCondition(operation: "",
+                                      left: 0,
+                                      right: 0,
+                                      value: "",
+                                      subCondition: 0)
         return condition
     }
     
     /// 识别container
     /// - parameters: container原始DSL描述语句
     private class func recognize(container: [String : Any]) -> OMCDContainer {
-        let container = OMCDContainer(children: 0, flexStyle: recognize(flexStyle: [:]), layoutHeight: [:], layoutWidth: [:], type: "container")
+        let container = OMCDContainer(children: 0,
+                                      flexStyle: recognize(flexStyle: [:]),
+                                      layoutHeight: [:],
+                                      layoutWidth: [:],
+                                      type: "container")
         return container
     }
 }
