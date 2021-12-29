@@ -20,7 +20,7 @@ import yoga
 /// 负责DSL的识别、解释和执行
 
 
-/// DSL属性集
+// - MARK: DSL属性集
 ///
 /// 属性集包含六种属性：布局属性，视图属性，数据属性，交互属性，条件属性，容器属性
 ///
@@ -33,10 +33,10 @@ public struct OMCDFlexStyle {
     var alignItems: YGAlign
     var alignSelf: YGAlign
     /// YGFloatOptional
-    var flexGrowFloat: Any
-    var flexShrinkFloat: Any
+    var flexGrowFloat: Float
+    var flexShrinkFloat: Float
     /// CompactValue
-    var flexBasisPercent: Any
+    var flexBasisPercent: YGValue
     var display: YGDisplay
 }
 
@@ -103,7 +103,7 @@ public struct OMCDAttributeSet {
     var container: OMCDContainer
 }
 
-/// DSL解析器
+// - MARK: DSL解析器
 class OMCDParser: NSObject {
     /// 解析DSL
     /// - parameters: canvas DSL描述语句
@@ -118,6 +118,7 @@ class OMCDParser: NSObject {
     }
 }
 
+// - MARK: 识别DSL描述语句
 private extension OMCDParser {
     /// 识别flexStyle
     /// - parameters: flexStyle原始DSL描述语句
@@ -128,7 +129,7 @@ private extension OMCDParser {
                                       alignSelf: .baseline,
                                       flexGrowFloat: 0,
                                       flexShrinkFloat: 0,
-                                      flexBasisPercent: 0,
+                                      flexBasisPercent: YGValue(value: 0.0, unit: .auto),
                                       display: .flex)
         return flexStyle
     }
