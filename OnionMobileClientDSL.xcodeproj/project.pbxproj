@@ -18,6 +18,9 @@
 		9F683B712779DB2800244C7D /* OMCDScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F683B702779DB2800244C7D /* OMCDScheduler.swift */; };
 		9F683B732779DBBE00244C7D /* OMCDUICombiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F683B722779DBBE00244C7D /* OMCDUICombiner.swift */; };
 		9F683B752779DBF600244C7D /* OMCDActionCombiner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F683B742779DBF600244C7D /* OMCDActionCombiner.swift */; };
+		9FDB907B278C1A2200AC25CA /* OMCDMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDB907A278C1A2100AC25CA /* OMCDMapping.swift */; };
+		9FDB907D278D7E0E00AC25CA /* DSLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDB907C278D7E0E00AC25CA /* DSLView.swift */; };
+		9FDB9087278DA3A200AC25CA /* MockDSL.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FDB9086278DA3A200AC25CA /* MockDSL.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		9F683B702779DB2800244C7D /* OMCDScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMCDScheduler.swift; sourceTree = "<group>"; };
 		9F683B722779DBBE00244C7D /* OMCDUICombiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMCDUICombiner.swift; sourceTree = "<group>"; };
 		9F683B742779DBF600244C7D /* OMCDActionCombiner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMCDActionCombiner.swift; sourceTree = "<group>"; };
+		9FDB907A278C1A2100AC25CA /* OMCDMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMCDMapping.swift; sourceTree = "<group>"; };
+		9FDB907C278D7E0E00AC25CA /* DSLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSLView.swift; sourceTree = "<group>"; };
+		9FDB9086278DA3A200AC25CA /* MockDSL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockDSL.json; sourceTree = "<group>"; };
 		A97A99F1AE22F750AA8DDD5B /* libPods-OnionMobileClientDSL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnionMobileClientDSL.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9C0B1ED967F584E2B16BF3 /* Pods-OnionMobileClientDSL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnionMobileClientDSL.release.xcconfig"; path = "Target Support Files/Pods-OnionMobileClientDSL/Pods-OnionMobileClientDSL.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,10 +86,12 @@
 		9F683B582779A9E200244C7D /* OnionMobileClientDSL */ = {
 			isa = PBXGroup;
 			children = (
+				9FDB9086278DA3A200AC25CA /* MockDSL.json */,
 				9F683B592779A9E200244C7D /* AppDelegate.swift */,
 				9F683B5B2779A9E200244C7D /* SceneDelegate.swift */,
 				9F683B5D2779A9E200244C7D /* ViewController.swift */,
 				9F683B6D2779C61600244C7D /* OMCD */,
+				9FDB907E278D7E1400AC25CA /* DSLUI */,
 				9F683B5F2779A9E200244C7D /* Main.storyboard */,
 				9F683B622779A9E600244C7D /* Assets.xcassets */,
 				9F683B642779A9E600244C7D /* LaunchScreen.storyboard */,
@@ -99,8 +107,17 @@
 				9F683B702779DB2800244C7D /* OMCDScheduler.swift */,
 				9F683B722779DBBE00244C7D /* OMCDUICombiner.swift */,
 				9F683B742779DBF600244C7D /* OMCDActionCombiner.swift */,
+				9FDB907A278C1A2100AC25CA /* OMCDMapping.swift */,
 			);
 			path = OMCD;
+			sourceTree = "<group>";
+		};
+		9FDB907E278D7E1400AC25CA /* DSLUI */ = {
+			isa = PBXGroup;
+			children = (
+				9FDB907C278D7E0E00AC25CA /* DSLView.swift */,
+			);
+			path = DSLUI;
 			sourceTree = "<group>";
 		};
 		B2F743FF46BF90CBF3152014 /* Frameworks */ = {
@@ -144,6 +161,7 @@
 				TargetAttributes = {
 					9F683B552779A9E200244C7D = {
 						CreatedOnToolsVersion = 13.2.1;
+						LastSwiftMigration = 1320;
 					};
 				};
 			};
@@ -171,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9F683B662779A9E600244C7D /* LaunchScreen.storyboard in Resources */,
+				9FDB9087278DA3A200AC25CA /* MockDSL.json in Resources */,
 				9F683B632779A9E600244C7D /* Assets.xcassets in Resources */,
 				9F683B612779A9E200244C7D /* Main.storyboard in Resources */,
 			);
@@ -210,7 +229,9 @@
 			files = (
 				9F683B5E2779A9E200244C7D /* ViewController.swift in Sources */,
 				9F683B5A2779A9E200244C7D /* AppDelegate.swift in Sources */,
+				9FDB907D278D7E0E00AC25CA /* DSLView.swift in Sources */,
 				9F683B752779DBF600244C7D /* OMCDActionCombiner.swift in Sources */,
+				9FDB907B278C1A2200AC25CA /* OMCDMapping.swift in Sources */,
 				9F683B5C2779A9E200244C7D /* SceneDelegate.swift in Sources */,
 				9F683B732779DBBE00244C7D /* OMCDUICombiner.swift in Sources */,
 				9F683B712779DB2800244C7D /* OMCDScheduler.swift in Sources */,
@@ -291,7 +312,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -346,7 +367,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -362,6 +383,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 278RRPRN7B;
@@ -381,6 +403,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -392,6 +415,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 278RRPRN7B;

@@ -1,0 +1,47 @@
+{
+   "flexStyle": {
+       "flexDirection": "",
+       "justifyContent": "",
+       "alignItems": "",
+       "alignSelf": "",
+       "flexGrowFloat": "",
+       "flexShrinkFloat": "",
+       "flexBasisPercent": "",
+       "display": ""
+   },
+   "viewStyle": {
+       "backgroundColor": "",
+       "alpha": "",
+       "cornerRadius": "",
+       "borderColor": "",
+       "borderWidth": "",
+       "textColor": "",
+       "textAlignment": "",
+       "font": ""
+   },
+   "data": {
+       "data": {
+           
+       },
+       "bindTarget": ""
+   },
+   "viewAction": {
+       "action": "",
+       "extra": {
+           "url": "https://www.bilibili.com/"
+       }
+   },
+   "condition": {
+       
+   },
+   "container": {
+       "children": "",
+       "layoutHeight": {
+           
+       },
+       "layoutWidth": {
+           
+       },
+       "type": ""
+   }
+}

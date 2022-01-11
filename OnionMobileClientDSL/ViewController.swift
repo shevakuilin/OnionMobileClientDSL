@@ -8,10 +8,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    private let dslView = DSLView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 //        OMCDParser.parsing(canvas: <#T##[String : Any]#>)
+        
+        OMCDParser.parsing(canvas: "")
     }
 }
 

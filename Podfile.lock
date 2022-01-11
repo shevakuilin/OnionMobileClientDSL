@@ -1,16 +1,26 @@
 PODS:
-  - Yoga (1.14.0)
+  - YC_YogaKit/all (1.2.0):
+    - YC_YogaKit/core
+    - YC_YogaKit/yoga_flexLayout
+    - YC_YogaKit/yoga_objc
+    - YC_YogaKit/yoga_swift
+  - YC_YogaKit/core (1.2.0)
+  - YC_YogaKit/yoga_flexLayout (1.2.0):
+    - YC_YogaKit/yoga_swift
+  - YC_YogaKit/yoga_objc (1.2.0)
+  - YC_YogaKit/yoga_swift (1.2.0):
+    - YC_YogaKit/yoga_objc
 
 DEPENDENCIES:
-  - Yoga
+  - YC_YogaKit/all (= 1.2.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
-    - Yoga
+  "https://openreg:6ls6Ys^4@gitlab.yc345.tv/ios/apps/Specs.git":
+    - YC_YogaKit
 
 SPEC CHECKSUMS:
-  Yoga: cff67a400f6b74dc38eb0bad4f156673d9aa980c
+  YC_YogaKit: 4de69785c2e2af67ed918bd71c18c77fff65152d
 
-PODFILE CHECKSUM: 5d5a4dcd6ca7e87b51bd1e786c8ab7cf6287ec04
+PODFILE CHECKSUM: 1af77498ac77076e33731b0deefb5d8bc54e6b64
 
 COCOAPODS: 1.11.2

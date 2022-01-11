@@ -1,0 +1,6 @@
+module Pods_OnionMobileClientDSL {
+  umbrella header "Pods-OnionMobileClientDSL-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -9,7 +9,7 @@
 
 import Foundation
 import UIKit
-import yoga
+import YC_YogaKit
 
 /// 布局信息解析
 ///
@@ -106,8 +106,9 @@ public struct OMCDAttributeSet {
 // - MARK: DSL解析器
 class OMCDParser: NSObject {
     /// 解析DSL
-    /// - parameters: canvas DSL描述语句
-    public class func parsing(canvas: [String: Any]) -> OMCDAttributeSet  {
+    /// - parameters: canvas DSL描述语句，JSON数据格式
+    public class func parsing(canvas: String) -> OMCDAttributeSet  {
+        let dsl = convert(json: canvas)
         let attributeSet = OMCDAttributeSet(flexStyle: recognize(flexStyle: [:]),
                                             viewStyle: recognize(viewStyle: [:]),
                                             data: recognize(data: [:]),
@@ -115,6 +116,17 @@ class OMCDParser: NSObject {
                                             condition: recognize(condition: [:]),
                                             container: recognize(container: [:]))
         return attributeSet
+    }
+}
+
+// - MARK: 转换DSL描述语句
+private extension OMCDParser {
+    /// 转换JSON->Dictionary
+    /// - Parameters: json 原始JSON结构DLS描述语句
+    /// - Return: 转换后的Dictionary
+    private class func convert(json: String) -> [String: Any] {
+        let result: [String: Any] = [:]
+        return result
     }
 }
 
