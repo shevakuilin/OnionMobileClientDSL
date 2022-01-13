@@ -21,6 +21,7 @@
 		9FDB907B278C1A2200AC25CA /* OMCDMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDB907A278C1A2100AC25CA /* OMCDMapping.swift */; };
 		9FDB907D278D7E0E00AC25CA /* DSLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDB907C278D7E0E00AC25CA /* DSLView.swift */; };
 		9FDB9087278DA3A200AC25CA /* MockDSL.json in Resources */ = {isa = PBXBuildFile; fileRef = 9FDB9086278DA3A200AC25CA /* MockDSL.json */; };
+		9FDB9089279015FB00AC25CA /* OtherFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDB9088279015FA00AC25CA /* OtherFunc.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		9FDB907A278C1A2100AC25CA /* OMCDMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OMCDMapping.swift; sourceTree = "<group>"; };
 		9FDB907C278D7E0E00AC25CA /* DSLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSLView.swift; sourceTree = "<group>"; };
 		9FDB9086278DA3A200AC25CA /* MockDSL.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MockDSL.json; sourceTree = "<group>"; };
+		9FDB9088279015FA00AC25CA /* OtherFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherFunc.swift; sourceTree = "<group>"; };
 		A97A99F1AE22F750AA8DDD5B /* libPods-OnionMobileClientDSL.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-OnionMobileClientDSL.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC9C0B1ED967F584E2B16BF3 /* Pods-OnionMobileClientDSL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnionMobileClientDSL.release.xcconfig"; path = "Target Support Files/Pods-OnionMobileClientDSL/Pods-OnionMobileClientDSL.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -86,7 +88,7 @@
 		9F683B582779A9E200244C7D /* OnionMobileClientDSL */ = {
 			isa = PBXGroup;
 			children = (
-				9FDB9086278DA3A200AC25CA /* MockDSL.json */,
+				9FDB908A2790161000AC25CA /* Other */,
 				9F683B592779A9E200244C7D /* AppDelegate.swift */,
 				9F683B5B2779A9E200244C7D /* SceneDelegate.swift */,
 				9F683B5D2779A9E200244C7D /* ViewController.swift */,
@@ -118,6 +120,15 @@
 				9FDB907C278D7E0E00AC25CA /* DSLView.swift */,
 			);
 			path = DSLUI;
+			sourceTree = "<group>";
+		};
+		9FDB908A2790161000AC25CA /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				9FDB9086278DA3A200AC25CA /* MockDSL.json */,
+				9FDB9088279015FA00AC25CA /* OtherFunc.swift */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 		B2F743FF46BF90CBF3152014 /* Frameworks */ = {
@@ -227,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9FDB9089279015FB00AC25CA /* OtherFunc.swift in Sources */,
 				9F683B5E2779A9E200244C7D /* ViewController.swift in Sources */,
 				9F683B5A2779A9E200244C7D /* AppDelegate.swift in Sources */,
 				9FDB907D278D7E0E00AC25CA /* DSLView.swift in Sources */,

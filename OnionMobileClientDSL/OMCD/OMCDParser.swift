@@ -108,13 +108,19 @@ class OMCDParser: NSObject {
     /// 解析DSL
     /// - parameters: canvas DSL描述语句，JSON数据格式
     public class func parsing(canvas: String) -> OMCDAttributeSet  {
-        let dsl = convert(json: canvas)
-        let attributeSet = OMCDAttributeSet(flexStyle: recognize(flexStyle: [:]),
-                                            viewStyle: recognize(viewStyle: [:]),
-                                            data: recognize(data: [:]),
-                                            viewAction: recognize(viewAction: [:]),
-                                            condition: recognize(condition: [:]),
-                                            container: recognize(container: [:]))
+        let dsl: [String: AnyObject] = convert(json: canvas)
+        let flexStyle = dsl["flexStyle"] as? [String: Any]
+        let viewStyle = dsl["viewStyle"] as? [String: Any]
+        let data = dsl["data"] as? [String: Any]
+        let viewAction = dsl["viewAction"] as? [String: Any]
+        let condition = dsl["condition"] as? [String: Any]
+        let container = dsl["container"] as? [String: Any]
+        let attributeSet = OMCDAttributeSet(flexStyle: recognize(flexStyle: flexStyle)!,
+                                            viewStyle: recognize(viewStyle: viewStyle)!,
+                                            data: recognize(data: data)!,
+                                            viewAction: recognize(viewAction: viewAction)!,
+                                            condition: recognize(condition: condition)!,
+                                            container: recognize(container: container)!)
         return attributeSet
     }
 }
@@ -124,9 +130,97 @@ private extension OMCDParser {
     /// 转换JSON->Dictionary
     /// - Parameters: json 原始JSON结构DLS描述语句
     /// - Return: 转换后的Dictionary
-    private class func convert(json: String) -> [String: Any] {
-        let result: [String: Any] = [:]
+    private class func convert(json: String) -> [String: AnyObject] {
+        guard let result: [String: AnyObject] = convertStringToDictionary(text: json) else {
+            return [:]
+        }
         return result
+    }
+    
+    private class func convertStringToDictionary(text: String) -> [String: AnyObject]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject]
+                return json
+            } catch {}
+        }
+        return nil
+    }
+    
+    /// 转换字符串为YGFlexDirection
+    /// - Parameters: string 原始字符串
+    /// - Return: 转换后的YGFlexDirection属性
+    private class func convertFlexDirection(string: String?) -> YGFlexDirection {
+        var flexDirection: YGFlexDirection = .column
+        if string == "DirectionColumn" {
+            flexDirection = .column
+        } else if string == "DirectionColumnReverse" {
+            flexDirection = .columnReverse
+        } else if string == "DirectionRow" {
+            flexDirection = .row
+        } else if string == "DirectionRowReverse" {
+            flexDirection = .rowReverse
+        }
+        return flexDirection
+    }
+    
+    /// 转换字符串为YGJustify
+    /// - Parameters: string 原始字符串
+    /// - Return: 转换后的YGJustify属性
+    private class func convertJustifyContent(string: String?) -> YGJustify {
+        var justifyContent: YGJustify = .flexStart
+        if string == "JustifyFlexStart" {
+            justifyContent = .flexStart
+        } else if string == "JustifyCenter" {
+            justifyContent = .center
+        } else if string == "JustifyFlexEnd" {
+            justifyContent = .flexEnd
+        } else if string == "JustifySpaceBetween" {
+            justifyContent = .spaceBetween
+        } else if string == "JustifySpaceAround" {
+            justifyContent = .spaceAround
+        } else if string == "JustifySpaceEvenly" {
+            justifyContent = .spaceEvenly
+        }
+        return justifyContent
+    }
+    
+    /// 转换字符串为YGAlign
+    /// - Parameters: string 原始字符串
+    /// - Return: 转换后的YGAlign属性
+    private class func convertAlign(string: String?) -> YGAlign {
+        var align: YGAlign = .auto
+        if string == "AlignAuto" {
+            align = .auto
+        } else if string == "AlignFlexStart" {
+            align = .flexStart
+        } else if string == "AlignCenter" {
+            align = .center
+        } else if string == "AlignFlexEnd" {
+            align = .flexEnd
+        } else if string == "AlignStretch" {
+            align = .stretch
+        } else if string == "AlignBaseline" {
+            align = .baseline
+        } else if string == "AlignSpaceBetween" {
+            align = .spaceBetween
+        } else if string == "AlignSpaceAround" {
+            align = .spaceAround
+        }
+        return align
+    }
+    
+    /// 转换字符串为YGDisplay
+    /// - Parameters: string 原始字符串
+    /// - Return: 转换后的YGDisplay属性
+    private class func convertDisplay(string: String?) -> YGDisplay {
+        var display: YGDisplay = .flex
+        if string == "DisplayFlex" {
+            display = .flex
+        } else if string == "DisplayNone" {
+            display = .none
+        }
+        return display
     }
 }
 
@@ -134,27 +228,33 @@ private extension OMCDParser {
 private extension OMCDParser {
     /// 识别flexStyle
     /// - parameters: flexStyle原始DSL描述语句
-    private class func recognize(flexStyle: [String : Any]) -> OMCDFlexStyle {
-        let flexStyle = OMCDFlexStyle(flexDirection: .column,
-                                      justifyContent: .center,
-                                      alignItems: .auto,
-                                      alignSelf: .baseline,
-                                      flexGrowFloat: 0,
-                                      flexShrinkFloat: 0,
-                                      flexBasisPercent: YGValue(value: 0.0, unit: .auto),
-                                      display: .flex)
+    private class func recognize(flexStyle: [String : Any]?) -> OMCDFlexStyle? {
+        guard let flex = flexStyle else {
+            return nil
+        }
+        let flexStyle = OMCDFlexStyle(flexDirection: convertFlexDirection(string: flex["flexDirection"] as? String),
+                                      justifyContent: convertJustifyContent(string: flex["justifyContent"] as? String),
+                                      alignItems: convertAlign(string: flex["alignItems"] as? String),
+                                      alignSelf: convertAlign(string: flex["alignSelf"] as? String),
+                                      flexGrowFloat: flex["flexGrowFloat"] as? Float ?? 0,
+                                      flexShrinkFloat: flex["flexShrinkFloat"] as? Float ?? 0,
+                                      flexBasisPercent: YGValue(value: flex["flexBasisPercent"] as? Float ?? 0, unit: .auto),
+                                      display: convertDisplay(string: flex["display"] as? String))
         return flexStyle
     }
     
     /// 识别viewStyle
     /// - parameters: viewStyle原始DSL描述语句
-    private class func recognize(viewStyle: [String : Any]) -> OMCDViewStyle {
-        let viewStyle = OMCDViewStyle(backgroundColor: .systemPink,
-                                      alpha: 1.0,
-                                      cornerRadius: 0,
-                                      borderColor: .white,
-                                      borderWidth: 0,
-                                      textColor: .orange,
+    private class func recognize(viewStyle: [String : Any]?) -> OMCDViewStyle? {
+        guard let view = viewStyle else {
+            return nil
+        }
+        let viewStyle = OMCDViewStyle(backgroundColor: kRGBColorFromHexString(view["backgroundColor"] as? String ?? ""),
+                                      alpha: view["alpha"] as? Float ?? 0,
+                                      cornerRadius: view["alpha"] as? Float ?? 0,
+                                      borderColor: kRGBColorFromHexString(view["borderColor"] as? String ?? ""),
+                                      borderWidth: view["borderWidth"] as? Float ?? 0,
+                                      textColor: kRGBColorFromHexString(view["textColor"] as? String ?? ""),
                                       textAlignment: .center,
                                       font: .systemFont(ofSize: 15))
         return viewStyle
@@ -162,15 +262,18 @@ private extension OMCDParser {
     
     /// 识别data
     /// - parameters: data原始DSL描述语句
-    private class func recognize(data: [String : Any]) -> OMCDData {
-        let data = OMCDData(data: [:],
-                            bindTarget: "")
+    private class func recognize(data: [String : Any]?) -> OMCDData? {
+        guard let styleData = data else {
+            return nil
+        }
+        let data = OMCDData(data: styleData["data"] as? [String : AnyObject] ?? [:],
+                            bindTarget: styleData["bindTarget"] as? String ?? "")
         return data
     }
     
     /// 识别viewAction
     /// - parameters: viewAction原始DSL描述语句
-    private class func recognize(viewAction: [String : Any]) -> OMCDViewAction {
+    private class func recognize(viewAction: [String : Any]?) -> OMCDViewAction? {
         let viewAction = OMCDViewAction(action: "",
                                         extra: [:])
         return viewAction
@@ -178,7 +281,7 @@ private extension OMCDParser {
     
     /// 识别condition
     /// - parameters: condition原始DSL描述语句
-    private class func recognize(condition: [String : Any]) -> OMCDCondition {
+    private class func recognize(condition: [String : Any]?) -> OMCDCondition? {
         let condition = OMCDCondition(operation: "",
                                       left: 0,
                                       right: 0,
@@ -189,12 +292,15 @@ private extension OMCDParser {
     
     /// 识别container
     /// - parameters: container原始DSL描述语句
-    private class func recognize(container: [String : Any]) -> OMCDContainer {
-        let container = OMCDContainer(children: 0,
-                                      flexStyle: recognize(flexStyle: [:]),
-                                      layoutHeight: [:],
-                                      layoutWidth: [:],
-                                      type: "container")
+    private class func recognize(container: [String : Any]?) -> OMCDContainer? {
+        guard let theContainer = container else {
+            return nil
+        }
+        let container = OMCDContainer(children: theContainer["children"] as? [String : Any] ?? [:],
+                                      flexStyle: recognize(flexStyle: theContainer["flexStyle"]  as? [String : Any] ?? [:]) ?? OMCDFlexStyle(flexDirection: .column, justifyContent: .flexStart, alignItems: .flexStart, alignSelf: .auto, flexGrowFloat: 0, flexShrinkFloat: 0, flexBasisPercent: 0, display: .none),
+                                      layoutHeight: theContainer["layoutHeight"] as? [String : Any] ?? [:],
+                                      layoutWidth: theContainer["layoutWidth"] as? [String : Any] ?? [:],
+                                      type: theContainer["type"] as? String ?? "")
         return container
     }
 }

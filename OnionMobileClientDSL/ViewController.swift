@@ -12,9 +12,24 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        OMCDParser.parsing(canvas: <#T##[String : Any]#>)
-        
-        OMCDParser.parsing(canvas: "")
+        // 获取Mock DSL数据，解析器解析为属性集
+        let set: OMCDAttributeSet = OMCDParser.parsing(canvas: getJson())
+        set.flexStyle.flexBasisPercent
+    }
+}
+
+private extension ViewController {
+    private func getJson() -> String {
+        if let path = Bundle.main.path(forResource: "MockDSL", ofType: "json") {
+            do {
+                let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
+                let convertedString = String(data: data, encoding: String.Encoding.utf8) ?? ""
+                return convertedString
+              } catch {
+                return ""
+              }
+        }
+        return ""
     }
 }
 
