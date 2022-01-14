@@ -61,6 +61,8 @@ private extension DSLView {
             layout.flexShrink = CGFloat(self.attributeSet.flexStyle.flexShrinkFloat)
             layout.flexBasis = self.attributeSet.flexStyle.flexBasisPercent
             layout.display = self.attributeSet.flexStyle.display
+            layout.height = YGValue(self.attributeSet.container.layoutHeight["value"] as! CGFloat)
+            layout.width = YGValue(self.attributeSet.container.layoutWidth["value"] as! CGFloat)
         }
         self.yoga.applyLayout(preservingOrigin: false)
     }

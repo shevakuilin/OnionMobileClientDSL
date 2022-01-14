@@ -33,8 +33,8 @@ public struct OMCDFlexStyle {
     var alignItems: YGAlign
     var alignSelf: YGAlign
     /// YGFloatOptional
-    var flexGrowFloat: Float
-    var flexShrinkFloat: Float
+    var flexGrowFloat: CGFloat
+    var flexShrinkFloat: CGFloat
     /// CompactValue
     var flexBasisPercent: YGValue
     var display: YGDisplay
@@ -43,14 +43,14 @@ public struct OMCDFlexStyle {
 /// 视图属性
 /// 与视图 UI 样式相关的属性，如背景色、透明度、圆角等
 public struct OMCDViewStyle {
-    var backgroundColor: UIColor = .white
-    var alpha: Float
-    var cornerRadius: Float
-    var borderColor: UIColor = .white
-    var borderWidth: Float
-    var textColor: UIColor = .black
-    var textAlignment: NSTextAlignment = .left
-    var font: UIFont = .systemFont(ofSize: 17)
+    var backgroundColor: UIColor
+    var alpha: CGFloat
+    var cornerRadius: CGFloat
+    var borderColor: UIColor
+    var borderWidth: CGFloat
+    var textColor: UIColor
+    var textAlignment: NSTextAlignment
+    var font: UIFont
 }
 
 /// 数据属性
@@ -236,8 +236,8 @@ private extension OMCDParser {
                                       justifyContent: convertJustifyContent(string: flex["justifyContent"] as? String),
                                       alignItems: convertAlign(string: flex["alignItems"] as? String),
                                       alignSelf: convertAlign(string: flex["alignSelf"] as? String),
-                                      flexGrowFloat: flex["flexGrowFloat"] as? Float ?? 0,
-                                      flexShrinkFloat: flex["flexShrinkFloat"] as? Float ?? 0,
+                                      flexGrowFloat: flex["flexGrowFloat"] as? CGFloat ?? 0,
+                                      flexShrinkFloat: flex["flexShrinkFloat"] as? CGFloat ?? 0,
                                       flexBasisPercent: YGValue(value: flex["flexBasisPercent"] as? Float ?? 0, unit: .auto),
                                       display: convertDisplay(string: flex["display"] as? String))
         return flexStyle
@@ -250,10 +250,10 @@ private extension OMCDParser {
             return nil
         }
         let viewStyle = OMCDViewStyle(backgroundColor: kRGBColorFromHexString(view["backgroundColor"] as? String ?? ""),
-                                      alpha: view["alpha"] as? Float ?? 0,
-                                      cornerRadius: view["alpha"] as? Float ?? 0,
+                                      alpha: view["alpha"] as? CGFloat ?? 0,
+                                      cornerRadius: view["cornerRadius"] as? CGFloat ?? 0,
                                       borderColor: kRGBColorFromHexString(view["borderColor"] as? String ?? ""),
-                                      borderWidth: view["borderWidth"] as? Float ?? 0,
+                                      borderWidth: view["borderWidth"] as? CGFloat ?? 0,
                                       textColor: kRGBColorFromHexString(view["textColor"] as? String ?? ""),
                                       textAlignment: .center,
                                       font: .systemFont(ofSize: 15))
@@ -274,8 +274,11 @@ private extension OMCDParser {
     /// 识别viewAction
     /// - parameters: viewAction原始DSL描述语句
     private class func recognize(viewAction: [String : Any]?) -> OMCDViewAction? {
-        let viewAction = OMCDViewAction(action: "",
-                                        extra: [:])
+        guard let action = viewAction else {
+            return nil
+        }
+        let viewAction = OMCDViewAction(action: action["action"] as? String ?? "",
+                                        extra: action["extra"] as? [String : AnyObject] ?? [:])
         return viewAction
     }
     

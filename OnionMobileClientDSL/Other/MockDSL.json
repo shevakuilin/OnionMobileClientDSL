@@ -11,8 +11,8 @@
    },
    "viewStyle": {
        "backgroundColor": "#FADB14",
-       "alpha": "0.8",
-       "cornerRadius": "8",
+       "alpha": 0.8,
+       "cornerRadius": 8,
        "borderColor": "",
        "borderWidth": "",
        "textColor": "",

@@ -14,7 +14,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // 获取Mock DSL数据，解析器解析为属性集
         let set: OMCDAttributeSet = OMCDParser.parsing(canvas: getJson())
-        set.flexStyle.flexBasisPercent
+        
+        self.dslView.initElements(set: set)
+        self.view.addSubview(self.dslView)
     }
 }
 
