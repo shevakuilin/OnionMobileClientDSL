@@ -162,10 +162,8 @@
                    "bindTarget": ""
                },
                "viewAction": {
-                   "action": "CLICK",
-                   "extra": {
-                       "url": "https://shevakuilin.com/"
-                   }
+                   "action": "TOUCH_MOVE",
+                   "extra": {}
                },
                "condition": {
                    

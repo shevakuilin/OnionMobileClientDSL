@@ -63,8 +63,6 @@ private extension DSLView {
             layout.display = self.attributeSet.flexStyle.display
             layout.height = YGValue(self.attributeSet.container.layoutHeight["value"] as! CGFloat)
             layout.width = YGValue(self.attributeSet.container.layoutWidth["value"] as! CGFloat)
-//            layout.marginVertical = self.attributeSet.flexStyle.marginVertical
-//            layout.marginHorizontal = self.attributeSet.flexStyle.marginHorizontal
         }
         self.yoga.applyLayout(preservingOrigin: false)
     }
@@ -76,6 +74,10 @@ private extension DSLView {
             self.isUserInteractionEnabled = true
             let tap = UITapGestureRecognizer(target: self, action: #selector(clickAction))
             self.addGestureRecognizer(tap)
+        } else if attributeSet.viewAction.action == "TOUCH_MOVE" {
+            self.isUserInteractionEnabled = true
+            let pan = UIPanGestureRecognizer(target: self, action: #selector(drag(sender:)))
+            self.addGestureRecognizer(pan)
         }
     }
     
@@ -98,5 +100,15 @@ private extension DSLView {
         }
         // 模拟跳转到Safari
         UIApplication.shared.open(theURL, options: [:], completionHandler: nil)
+    }
+    
+    // 拖拽
+    @objc
+    private func drag(sender: UIPanGestureRecognizer) {
+        if sender.state == .changed {
+            let offset = sender.translation(in: self)
+            sender.view?.center = CGPoint(x: self.center.x + offset.x, y: self.center.y + offset.y)
+            sender.setTranslation(.zero, in: self)
+        }
     }
 }
