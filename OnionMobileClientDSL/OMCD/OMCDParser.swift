@@ -86,7 +86,7 @@ public struct OMCDCondition {
 /// container 对应于 App 端支持了 Flexbox 布局系统的容器控件。container 使用属性 children 来描述容器内嵌套的子视图，children 是一个数组，可以包含任意多个控件节点
 /// 我们将控件的宽高定义为一个复合属性，我们使用了更简洁的字符串类型的 layoutHeight、layoutWidth 来描述高和宽
 public struct OMCDContainer {
-    var children: Any
+    var children: [[String: AnyObject]]
     var flexStyle: OMCDFlexStyle
     var layoutHeight: [String : Any]
     var layoutWidth: [String : Any]
@@ -107,8 +107,14 @@ public struct OMCDAttributeSet {
 class OMCDParser: NSObject {
     /// 解析DSL
     /// - parameters: canvas DSL描述语句，JSON数据格式
-    public class func parsing(canvas: String) -> OMCDAttributeSet  {
-        let dsl: [String: AnyObject] = convert(json: canvas)
+    public class func parsing(canvas: Any) -> OMCDAttributeSet  {
+        var dsl: [String: AnyObject] = [:]
+        if let canvasString: String = canvas as? String {
+            dsl = convert(json: canvasString)
+        }
+        if let canvasDictionary = canvas as? [String: AnyObject] {
+            dsl = canvasDictionary
+        }
         let flexStyle = dsl["flexStyle"] as? [String: Any]
         let viewStyle = dsl["viewStyle"] as? [String: Any]
         let data = dsl["data"] as? [String: Any]
@@ -141,6 +147,16 @@ private extension OMCDParser {
         if let data = text.data(using: .utf8) {
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: AnyObject]
+                return json
+            } catch {}
+        }
+        return nil
+    }
+    
+    private class func convertStringToArray(text: String) -> [[String: AnyObject]]? {
+        if let data = text.data(using: .utf8) {
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [[String: AnyObject]]
                 return json
             } catch {}
         }
@@ -299,7 +315,7 @@ private extension OMCDParser {
         guard let theContainer = container else {
             return nil
         }
-        let container = OMCDContainer(children: theContainer["children"] as? [String : Any] ?? [:],
+        let container = OMCDContainer(children: theContainer["children"] as? [[String: AnyObject]] ?? [],
                                       flexStyle: recognize(flexStyle: theContainer["flexStyle"]  as? [String : Any] ?? [:]) ?? OMCDFlexStyle(flexDirection: .column, justifyContent: .flexStart, alignItems: .flexStart, alignSelf: .auto, flexGrowFloat: 0, flexShrinkFloat: 0, flexBasisPercent: 0, display: .none),
                                       layoutHeight: theContainer["layoutHeight"] as? [String : Any] ?? [:],
                                       layoutWidth: theContainer["layoutWidth"] as? [String : Any] ?? [:],

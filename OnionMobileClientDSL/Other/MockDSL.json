@@ -10,7 +10,7 @@
        "display": "DisplayFlex"
    },
    "viewStyle": {
-       "backgroundColor": "#FADB14",
+       "backgroundColor": "#356CFE",
        "alpha": 0.8,
        "cornerRadius": 8,
        "borderColor": "",
@@ -35,14 +35,113 @@
        
    },
    "container": {
-       "children": "",
+       "children": [
+           {
+               "flexStyle": {
+                   "flexDirection": "DirectionColumn",
+                   "justifyContent": "JustifyFlexStart",
+                   "alignItems": "AlignCenter",
+                   "alignSelf": "AlignCenter",
+                   "flexGrowFloat": "",
+                   "flexShrinkFloat": "",
+                   "flexBasisPercent": "",
+                   "display": "DisplayFlex"
+               },
+               "viewStyle": {
+                   "backgroundColor": "#FADB14",
+                   "alpha": 0.8,
+                   "cornerRadius": 8,
+                   "borderColor": "",
+                   "borderWidth": "",
+                   "textColor": "",
+                   "textAlignment": "",
+                   "font": ""
+               },
+               "data": {
+                   "data": {
+                       
+                   },
+                   "bindTarget": ""
+               },
+               "viewAction": {
+                   "action": "CLICK",
+                   "extra": {
+                       "url": "https://www.bilibili.com/"
+                   }
+               },
+               "condition": {
+                   
+               },
+               "container": {
+                   "children": [],
+                   "layoutHeight": {
+                       "type": "NUMERICAL",
+                       "value": 75
+                   },
+                   "layoutWidth": {
+                       "type": "NUMERICAL",
+                       "value": 200
+                   },
+                   "type": "container"
+               }
+           },
+           {
+               "flexStyle": {
+                   "flexDirection": "DirectionColumn",
+                   "justifyContent": "JustifyFlexStart",
+                   "alignItems": "AlignCenter",
+                   "alignSelf": "AlignCenter",
+                   "flexGrowFloat": "",
+                   "flexShrinkFloat": "",
+                   "flexBasisPercent": "",
+                   "display": "DisplayFlex"
+               },
+               "viewStyle": {
+                   "backgroundColor": "#3A3A3A",
+                   "alpha": 0.8,
+                   "cornerRadius": 8,
+                   "borderColor": "",
+                   "borderWidth": "",
+                   "textColor": "",
+                   "textAlignment": "",
+                   "font": ""
+               },
+               "data": {
+                   "data": {
+                       
+                   },
+                   "bindTarget": ""
+               },
+               "viewAction": {
+                   "action": "CLICK",
+                   "extra": {
+                       "url": "https://www.bilibili.com/"
+                   }
+               },
+               "condition": {
+                   
+               },
+               "container": {
+                   "children": [],
+                   "layoutHeight": {
+                       "type": "NUMERICAL",
+                       "value": 75
+                   },
+                   "layoutWidth": {
+                       "type": "NUMERICAL",
+                       "value": 200
+                   },
+                   "type": "container"
+               }
+           }
+       ],
        "layoutHeight": {
            "type": "NUMERICAL",
-           "value": 75
+           "value": 500
        },
        "layoutWidth": {
            "type": "NUMERICAL",
-           "value": 200
+           "value": 414
        },
        "type": "container"
    }

@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var count: Int = 0
     private let dslView = DSLView()
 
     override func viewDidLoad() {
@@ -17,6 +18,9 @@ class ViewController: UIViewController {
         
         self.dslView.initElements(set: set)
         self.view.addSubview(self.dslView)
+        
+        // 递归遍历子视图
+        recurseSubviews(children: set.container.children)
     }
 }
 
@@ -32,6 +36,21 @@ private extension ViewController {
               }
         }
         return ""
+    }
+    
+    private func recurseSubviews(children: [[String: AnyObject]]) {
+        guard children.count > 0 && count < children.count else {
+            return
+        }
+        let set: OMCDAttributeSet = OMCDParser.parsing(canvas: children[count])
+        
+        let dslSubview = DSLView()
+        dslSubview.initElements(set: set)
+        dslView.addSubview(dslSubview)
+        
+        count += 1
+        
+        recurseSubviews(children: children)
     }
 }
 
