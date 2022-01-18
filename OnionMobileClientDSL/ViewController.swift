@@ -40,6 +40,7 @@ private extension ViewController {
     
     private func recurseSubviews(children: [[String: AnyObject]]) {
         guard children.count > 0 && count < children.count else {
+            dslView.yoga.applyLayout(preservingOrigin: false)
             return
         }
         let set: OMCDAttributeSet = OMCDParser.parsing(canvas: children[count])

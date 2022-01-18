@@ -2,17 +2,17 @@
    "flexStyle": {
        "flexDirection": "DirectionColumn",
        "justifyContent": "JustifyFlexStart",
-       "alignItems": "AlignCenter",
-       "alignSelf": "AlignCenter",
+       "alignItems": "AlignFlexStart",
+       "alignSelf": "AlignAuto",
        "flexGrowFloat": "",
        "flexShrinkFloat": "",
        "flexBasisPercent": "",
-       "display": "DisplayFlex"
+       "display": "DisplayFlex",
    },
    "viewStyle": {
        "backgroundColor": "#356CFE",
        "alpha": 0.8,
-       "cornerRadius": 8,
+       "cornerRadius": 0,
        "borderColor": "",
        "borderWidth": "",
        "textColor": "",
@@ -26,9 +26,9 @@
        "bindTarget": ""
    },
    "viewAction": {
-       "action": "CLICK",
+       "action": "NONE",
        "extra": {
-           "url": "https://www.bilibili.com/"
+           "url": ""
        }
    },
    "condition": {
@@ -38,10 +38,10 @@
        "children": [
            {
                "flexStyle": {
-                   "flexDirection": "DirectionColumn",
+                   "flexDirection": "DirectionRow",
                    "justifyContent": "JustifyFlexStart",
-                   "alignItems": "AlignCenter",
-                   "alignSelf": "AlignCenter",
+                   "alignItems": "AlignAuto",
+                   "alignSelf": "AlignAuto",
                    "flexGrowFloat": "",
                    "flexShrinkFloat": "",
                    "flexBasisPercent": "",
@@ -49,7 +49,7 @@
                },
                "viewStyle": {
                    "backgroundColor": "#FADB14",
-                   "alpha": 0.8,
+                   "alpha": 1,
                    "cornerRadius": 8,
                    "borderColor": "",
                    "borderWidth": "",
@@ -67,6 +67,55 @@
                    "action": "CLICK",
                    "extra": {
                        "url": "https://www.bilibili.com/"
+                   }
+               },
+               "condition": {
+                   
+               },
+               "container": {
+                   "children": [],
+                   "layoutHeight": {
+                       "type": "NUMERICAL",
+                       "value": 155
+                   },
+                   "layoutWidth": {
+                       "type": "NUMERICAL",
+                       "value": 200
+                   },
+                   "type": "container"
+               }
+           },
+           {
+               "flexStyle": {
+                   "flexDirection": "DirectionRow",
+                   "justifyContent": "AlignCenter",
+                   "alignItems": "AlignAuto",
+                   "alignSelf": "AlignAuto",
+                   "flexGrowFloat": "",
+                   "flexShrinkFloat": "",
+                   "flexBasisPercent": "",
+                   "display": "DisplayFlex"
+               },
+               "viewStyle": {
+                   "backgroundColor": "#3A3A3A",
+                   "alpha": 1,
+                   "cornerRadius": 0,
+                   "borderColor": "",
+                   "borderWidth": "",
+                   "textColor": "",
+                   "textAlignment": "",
+                   "font": ""
+               },
+               "data": {
+                   "data": {
+                       
+                   },
+                   "bindTarget": ""
+               },
+               "viewAction": {
+                   "action": "CLICK",
+                   "extra": {
+                       "url": "https://shevakuilin.com/"
                    }
                },
                "condition": {
@@ -80,15 +129,15 @@
                    },
                    "layoutWidth": {
                        "type": "NUMERICAL",
-                       "value": 200
+                       "value": 414
                    },
                    "type": "container"
                }
            },
            {
                "flexStyle": {
-                   "flexDirection": "DirectionColumn",
-                   "justifyContent": "JustifyFlexStart",
+                   "flexDirection": "DirectionRow",
+                   "justifyContent": "JustifyFlexEnd",
                    "alignItems": "AlignCenter",
                    "alignSelf": "AlignCenter",
                    "flexGrowFloat": "",
@@ -97,9 +146,9 @@
                    "display": "DisplayFlex"
                },
                "viewStyle": {
-                   "backgroundColor": "#3A3A3A",
-                   "alpha": 0.8,
-                   "cornerRadius": 8,
+                   "backgroundColor": "#FA5A65",
+                   "alpha": 1,
+                   "cornerRadius": 100,
                    "borderColor": "",
                    "borderWidth": "",
                    "textColor": "",
@@ -115,7 +164,7 @@
                "viewAction": {
                    "action": "CLICK",
                    "extra": {
-                       "url": "https://www.bilibili.com/"
+                       "url": "https://shevakuilin.com/"
                    }
                },
                "condition": {
@@ -125,7 +174,7 @@
                    "children": [],
                    "layoutHeight": {
                        "type": "NUMERICAL",
-                       "value": 75
+                       "value": 200
                    },
                    "layoutWidth": {
                        "type": "NUMERICAL",

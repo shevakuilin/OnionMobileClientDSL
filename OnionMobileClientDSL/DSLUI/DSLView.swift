@@ -63,6 +63,8 @@ private extension DSLView {
             layout.display = self.attributeSet.flexStyle.display
             layout.height = YGValue(self.attributeSet.container.layoutHeight["value"] as! CGFloat)
             layout.width = YGValue(self.attributeSet.container.layoutWidth["value"] as! CGFloat)
+//            layout.marginVertical = self.attributeSet.flexStyle.marginVertical
+//            layout.marginHorizontal = self.attributeSet.flexStyle.marginHorizontal
         }
         self.yoga.applyLayout(preservingOrigin: false)
     }
