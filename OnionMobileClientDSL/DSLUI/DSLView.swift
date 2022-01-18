@@ -35,7 +35,6 @@ class DSLView: UIView {
         bindAction()
         bindData()
     }
-    
 }
 
 private extension DSLView {

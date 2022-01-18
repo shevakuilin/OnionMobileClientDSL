@@ -11,7 +11,7 @@
    },
    "viewStyle": {
        "backgroundColor": "#356CFE",
-       "alpha": 0.8,
+       "alpha": 1,
        "cornerRadius": 0,
        "borderColor": "",
        "borderWidth": "",
@@ -49,7 +49,7 @@
                },
                "viewStyle": {
                    "backgroundColor": "#FADB14",
-                   "alpha": 1,
+                   "alpha": 0.8,
                    "cornerRadius": 8,
                    "borderColor": "",
                    "borderWidth": "",
@@ -82,7 +82,7 @@
                        "type": "NUMERICAL",
                        "value": 200
                    },
-                   "type": "container"
+                   "type": "VIEW"
                }
            },
            {
@@ -131,7 +131,7 @@
                        "type": "NUMERICAL",
                        "value": 414
                    },
-                   "type": "container"
+                   "type": "VIEW"
                }
            },
            {
@@ -157,7 +157,7 @@
                },
                "data": {
                    "data": {
-                       
+                       "imageName": "head"
                    },
                    "bindTarget": ""
                },
@@ -178,7 +178,7 @@
                        "type": "NUMERICAL",
                        "value": 200
                    },
-                   "type": "container"
+                   "type": "IMAGE_VIEW"
                }
            }
        ],
@@ -190,6 +190,6 @@
            "type": "NUMERICAL",
            "value": 414
        },
-       "type": "container"
+       "type": "VIEW"
    }
 }

@@ -45,9 +45,15 @@ private extension ViewController {
         }
         let set: OMCDAttributeSet = OMCDParser.parsing(canvas: children[count])
         
-        let dslSubview = DSLView()
-        dslSubview.initElements(set: set)
-        dslView.addSubview(dslSubview)
+        if set.container.type == "VIEW" {
+            let dslSubview = DSLView()
+            dslSubview.initElements(set: set)
+            dslView.addSubview(dslSubview)
+        } else if set.container.type == "IMAGE_VIEW" {
+            let dslSubview = DSLImageView(frame: .zero)
+            dslSubview.initElements(set: set)
+            dslView.addSubview(dslSubview)
+        }
         
         count += 1
         
