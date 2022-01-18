@@ -180,11 +180,58 @@
                    },
                    "type": "IMAGE_VIEW"
                }
+           },
+           {
+               "flexStyle": {
+                   "flexDirection": "DirectionRow",
+                   "justifyContent": "JustifyFlexEnd",
+                   "alignItems": "AlignCenter",
+                   "alignSelf": "AlignCenter",
+                   "flexGrowFloat": "",
+                   "flexShrinkFloat": "",
+                   "flexBasisPercent": "",
+                   "display": "DisplayFlex"
+               },
+               "viewStyle": {
+                   "backgroundColor": "#FFFFFF",
+                   "alpha": 1,
+                   "cornerRadius": 0,
+                   "borderColor": "",
+                   "borderWidth": "",
+                   "textColor": "",
+                   "textAlignment": "",
+                   "font": ""
+               },
+               "data": {
+                   "data": {
+                       
+                   },
+                   "bindTarget": ""
+               },
+               "viewAction": {
+                   "action": "TOUCH_MOVE",
+                   "extra": {}
+               },
+               "condition": {
+                   
+               },
+               "container": {
+                   "children": [],
+                   "layoutHeight": {
+                       "type": "NUMERICAL",
+                       "value": 414
+                   },
+                   "layoutWidth": {
+                       "type": "NUMERICAL",
+                       "value": 414
+                   },
+                   "type": "TABLE_VIEW"
+               }
            }
        ],
        "layoutHeight": {
            "type": "NUMERICAL",
-           "value": 500
+           "value": 844
        },
        "layoutWidth": {
            "type": "NUMERICAL",

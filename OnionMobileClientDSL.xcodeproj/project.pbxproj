@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		9B01878E8129C78D748CA885 /* libPods-OnionMobileClientDSL.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A97A99F1AE22F750AA8DDD5B /* libPods-OnionMobileClientDSL.a */; };
 		9F04462C2796A8660093BA8C /* DSLImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F04462B2796A8660093BA8C /* DSLImageView.swift */; };
+		9F04462E2796ACFF0093BA8C /* DSLTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F04462D2796ACFF0093BA8C /* DSLTableView.swift */; };
 		9F683B5A2779A9E200244C7D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F683B592779A9E200244C7D /* AppDelegate.swift */; };
 		9F683B5C2779A9E200244C7D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F683B5B2779A9E200244C7D /* SceneDelegate.swift */; };
 		9F683B5E2779A9E200244C7D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F683B5D2779A9E200244C7D /* ViewController.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		5D83B3128E94AACE5F30D13F /* Pods-OnionMobileClientDSL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OnionMobileClientDSL.debug.xcconfig"; path = "Target Support Files/Pods-OnionMobileClientDSL/Pods-OnionMobileClientDSL.debug.xcconfig"; sourceTree = "<group>"; };
 		9F04462B2796A8660093BA8C /* DSLImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSLImageView.swift; sourceTree = "<group>"; };
+		9F04462D2796ACFF0093BA8C /* DSLTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DSLTableView.swift; sourceTree = "<group>"; };
 		9F683B562779A9E200244C7D /* OnionMobileClientDSL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnionMobileClientDSL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F683B592779A9E200244C7D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9F683B5B2779A9E200244C7D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 			children = (
 				9FDB907C278D7E0E00AC25CA /* DSLView.swift */,
 				9F04462B2796A8660093BA8C /* DSLImageView.swift */,
+				9F04462D2796ACFF0093BA8C /* DSLTableView.swift */,
 			);
 			path = DSLUI;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				9F683B732779DBBE00244C7D /* OMCDUICombiner.swift in Sources */,
 				9F683B712779DB2800244C7D /* OMCDScheduler.swift in Sources */,
 				9F683B6F2779D6EE00244C7D /* OMCDParser.swift in Sources */,
+				9F04462E2796ACFF0093BA8C /* DSLTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

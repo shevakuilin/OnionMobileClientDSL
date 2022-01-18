@@ -53,6 +53,10 @@ private extension ViewController {
             let dslSubview = DSLImageView(frame: .zero)
             dslSubview.initElements(set: set)
             dslView.addSubview(dslSubview)
+        } else if set.container.type == "TABLE_VIEW" {
+            let dslSubview = DSLTableView()
+            dslSubview.initElements(set: set)
+            dslView.addSubview(dslSubview)
         }
         
         count += 1
